@@ -1,9 +1,11 @@
-import { makeStyles } from '@material-ui/core'
 import axios from 'axios'
+import { makeStyles } from '@material-ui/core'
 import React, { useContext, useEffect, useState } from 'react'
 import AliceCarousel from 'react-alice-carousel'
 import { Link } from 'react-router-dom'
 import { TrendingCoins } from '../../config/api'
+import {Crypto} from "../../Cryptocontext"
+
 export const numberWithCommas=(x)=>{
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
@@ -22,7 +24,6 @@ const useStyles=makeStyles((theme)=>({
             color:"white"
     }
 }))
-import {Crypto} from "../../Cryptocontext"
 export const Carousel = () => {
 
 const numberWithCommas=(x)=>{

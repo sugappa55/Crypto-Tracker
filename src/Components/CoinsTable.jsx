@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-import {CoinList} from "../config/api"
 import {Crypto} from "../Cryptocontext"
 import { Container, createTheme,LinearProgress,makeStyles,Table,TableBody,TableCell,TableContainer,TableHead,TableRow,TextField,ThemeProvider, Typography } from '@material-ui/core'
 import { useNavigate } from 'react-router-dom'
@@ -67,7 +66,7 @@ const CoinsTable = () => {
                                        return  <TableCell style={{
                                            color:"black",
                                            fontWeight:"700"
-                                       }} key={e} align={e=="Coin"?"":"right"}>
+                                       }} key={e} align={e==="Coin"?"":"right"}>
                                             {e}
                                        </TableCell>
                                    })
