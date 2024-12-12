@@ -3,6 +3,7 @@ import { Inter, Roboto_Mono } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import ThemeClientProvider from '@/providers/ThemeClient';
+import Alert from '@/components/Alert';
 
 const inter = Inter({ variable: '--font-inter', subsets: ['latin'] });
 const robotoMono = Roboto_Mono({ variable: '--font-roboto-mono', subsets: ['latin'] });
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeClientProvider>
           <Header />
           {children}
+          <Alert/>
         </ThemeClientProvider>
       </body>
     </html>

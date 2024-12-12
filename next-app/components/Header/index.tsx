@@ -4,8 +4,7 @@ import { AppBar, Container, MenuItem, Select, Toolbar } from '@mui/material';
 import { Title } from './style';
 import { useNavStore } from '@/store/useNavStore';
 import { CurrencyType } from '@/type';
-// import { Crypto } from '../Cryptocontext';
-// import AuthModal from './Auth/AuthModal';
+import AuthModal from '../AuthModal';
 // import UserSidebar from './UserSidebar';
 
 const Header = () => {
@@ -35,6 +34,7 @@ const Header = () => {
             <MenuItem value='USD'>USD</MenuItem>
             <MenuItem value='INR'>INR</MenuItem>
           </Select>
+          <AuthModal />
           {/* {user ? <UserSidebar /> : <AuthModal />} */}
         </Toolbar>
       </Container>
