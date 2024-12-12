@@ -7,5 +7,6 @@ export const CarouselItemLink = styled(Link)(() => ({
   alignItems: 'center',
   cursor: 'pointer',
   color: 'white',
-  textTransform: 'uppercase'
+  textTransform: 'uppercase',
+  textDecoration: 'none'
 }));

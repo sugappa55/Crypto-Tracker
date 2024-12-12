@@ -3,7 +3,7 @@
 import React from 'react';
 import { BannerContent, TagLine } from './styles';
 import { Typography } from '@mui/material';
-import { Carousel } from '../Carousel';
+import { Carousel } from './components/Carousel';
 
 const Banner = () => {
   return (

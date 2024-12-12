@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import AliceCarousel from 'react-alice-carousel';
@@ -5,17 +7,19 @@ import CarouselItem from '../CarouselItem';
 import { CarouselContainer } from './styles';
 import { TrendingCoins } from '@/constants/apis';
 import 'react-alice-carousel/lib/alice-carousel.css';
+import { useNavStore } from '@/store/useNavStore';
 
 export const Carousel = () => {
   const [data, setData] = useState([]);
-  const getTrendingCoins = async () => {
-    const { data } = await axios.get(TrendingCoins('INR'));
-    setData(data);
-  };
+  const { currency } = useNavStore();
 
   useEffect(() => {
+    const getTrendingCoins = async () => {
+      const { data } = await axios.get(TrendingCoins(currency));
+      setData(data);
+    };
     getTrendingCoins();
-  }, []);
+  }, [currency]);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const items = data.map((item: any) => {
@@ -47,7 +51,6 @@ export const Carousel = () => {
         responsive={responsive}
         autoPlay
         items={items}
-        
       />
     </CarouselContainer>
   );

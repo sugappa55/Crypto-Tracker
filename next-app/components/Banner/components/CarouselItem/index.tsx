@@ -3,6 +3,8 @@ import Image from 'next/image';
 import React from 'react';
 import { CarouselItemLink } from './style';
 import { numberWithCommas } from '@/utils/helpers';
+import { useNavStore } from '@/store/useNavStore';
+import { symbols } from '@/constants';
 
 const CarouselItem = ({
   id,
@@ -20,6 +22,8 @@ const CarouselItem = ({
   current_price: number;
 }) => {
   const profit = price_change_percentage_24h >= 0;
+  const { currency } = useNavStore();
+  const currencySign = symbols[currency];
   return (
     <CarouselItemLink href={`/coins/${id}`}>
       <Image src={image} alt={name} height='80' style={{ marginBottom: 10 }} width={80} />
@@ -35,7 +39,7 @@ const CarouselItem = ({
         </span>
       </span>
       <span style={{ fontSize: 22, fontWeight: 500 }}>
-        {symbol}
+        {currencySign}
         {numberWithCommas(current_price.toFixed(2))}
       </span>
     </CarouselItemLink>

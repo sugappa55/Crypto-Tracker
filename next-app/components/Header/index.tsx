@@ -13,7 +13,7 @@ const Header = () => {
   const { currency, setCurrency } = useNavStore();
 
   return (
-    <AppBar color='default' position='static'>
+    <AppBar color='transparent' position='static'>
       <Container>
         <Toolbar>
           <Title
