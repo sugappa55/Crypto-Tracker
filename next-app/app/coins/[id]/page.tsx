@@ -1,7 +1,6 @@
 'use client';
 
 import { useParams } from 'next/navigation';
-
 import { LinearProgress } from '@mui/material';
 import { Container } from './styles';
 import useFetch from '@/hooks/useFetch';

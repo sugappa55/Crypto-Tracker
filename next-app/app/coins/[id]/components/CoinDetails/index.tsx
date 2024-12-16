@@ -11,6 +11,7 @@ import { doc, setDoc } from 'firebase/firestore';
 import { db } from '@/constants/firebase';
 import { User } from 'firebase/auth';
 import Image from 'next/image';
+import ReactHtmlParser from 'react-html-parser';
 
 const CoinDetails = ({ data }: { data: any }) => {
   const { currency } = useNavStore();
@@ -66,7 +67,7 @@ const CoinDetails = ({ data }: { data: any }) => {
     <Sidebar>
       <Image src={data?.image.large} alt={data?.name} height='200' width={200} style={{ marginBottom: 20 }} />
       <Heading variant='h3'>{data?.name} </Heading>
-      <Description variant='subtitle1'>{data?.description?.en.slice(0, 250)}</Description>
+      <Description variant='subtitle1'>{ReactHtmlParser(data?.description?.en.slice(0, 300))}</Description>
       <MarketData>
         <span style={{ display: 'flex' }}>
           <Typography variant='h5'>Rank:</Typography>&nbsp; &nbsp;
@@ -86,13 +87,9 @@ const CoinDetails = ({ data }: { data: any }) => {
         </span>
         {user && (
           <Button
-            variant='outlined'
-            style={{
-              width: '100%',
-              height: 40,
-              backgroundColor: inWatchList ? 'red' : 'gold',
-              color: 'white'
-            }}
+            variant='contained'
+            fullWidth
+            color={inWatchList ? 'error' : 'primary'}
             onClick={inWatchList ? removeFromWatchlist : addToWatchlist}>
             {!inWatchList ? 'Add To Watchlist' : 'Remove From Watchlist'}
           </Button>

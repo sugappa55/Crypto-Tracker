@@ -30,7 +30,7 @@ export const Description = styled(Typography)({
   width: '100%',
   padding: 25,
   paddingBottom: 15,
-  textAlign: 'center',
+  textAlign: 'left',
   top: 0 // Ensure this aligns with your intended usage.
 });
 
