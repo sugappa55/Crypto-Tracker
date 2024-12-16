@@ -38,7 +38,7 @@ const CoinsTable = () => {
 
   return (
     <Container style={{ textAlign: 'center' }}>
-      <Typography variant='h4' style={{ margin: 18, fontFamily: 'Monserrat' }}>
+      <Typography variant='h4' style={{ margin: 18 }}>
         Cryptocurrency Prices by Market Cap
       </Typography>
       <TextField

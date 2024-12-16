@@ -14,8 +14,7 @@ const Banner = () => {
             variant='h2'
             style={{
               fontWeight: 'bold',
-              marginBottom: 15,
-              fontFamily: 'Monserrat'
+              marginBottom: 15
             }}>
             Crypto Hunter
           </Typography>
@@ -23,8 +22,7 @@ const Banner = () => {
             variant='subtitle2'
             style={{
               color: 'darkgray',
-              textTransform: 'capitalize',
-              fontFamily: 'Monserrat'
+              textTransform: 'capitalize'
             }}>
             Get all the Info regarding your favorite Crypto Currencies
           </Typography>

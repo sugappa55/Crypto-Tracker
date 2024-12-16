@@ -1,12 +1,16 @@
 import { Metadata } from 'next';
-import { Inter, Roboto_Mono } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import ThemeClientProvider from '@/providers/ThemeClient';
 import Alert from '@/components/Alert';
+import UserContext from '@/providers/UserContext';
+import { Montserrat } from 'next/font/google';
 
-const inter = Inter({ variable: '--font-inter', subsets: ['latin'] });
-const robotoMono = Roboto_Mono({ variable: '--font-roboto-mono', subsets: ['latin'] });
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'], // Load specific weights
+  display: 'swap' // Optional: Use "swap" to improve loading performance
+});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,11 +20,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <body className={`${inter.variable} ${robotoMono.variable}`}>
+      <body className={`${montserrat.className}`}>
         <ThemeClientProvider>
-          <Header />
-          {children}
-          <Alert/>
+          <UserContext>
+            <Header />
+            {children}
+            <Alert />
+          </UserContext>
         </ThemeClientProvider>
       </body>
     </html>

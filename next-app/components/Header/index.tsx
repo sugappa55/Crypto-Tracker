@@ -1,15 +1,18 @@
 'use client';
+
 import { useRouter } from 'next/navigation';
 import { AppBar, Container, MenuItem, Select, Toolbar } from '@mui/material';
 import { Title } from './style';
 import { useNavStore } from '@/store/useNavStore';
 import { CurrencyType } from '@/type';
 import AuthModal from '../AuthModal';
-// import UserSidebar from './UserSidebar';
+import UserSidebar from '../SideBar';
+import { useUserContext } from '@/providers/UserContext';
 
 const Header = () => {
   const router = useRouter();
   const { currency, setCurrency } = useNavStore();
+  const user = useUserContext();
 
   return (
     <AppBar color='transparent' position='static'>
@@ -34,8 +37,7 @@ const Header = () => {
             <MenuItem value='USD'>USD</MenuItem>
             <MenuItem value='INR'>INR</MenuItem>
           </Select>
-          <AuthModal />
-          {/* {user ? <UserSidebar /> : <AuthModal />} */}
+          {user ? <UserSidebar /> : <AuthModal />}
         </Toolbar>
       </Container>
     </AppBar>
