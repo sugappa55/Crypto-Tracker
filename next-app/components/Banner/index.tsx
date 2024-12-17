@@ -7,7 +7,7 @@ import { Carousel } from './components/Carousel';
 
 const Banner = () => {
   return (
-    <div>
+    <div className='banner'>
       <BannerContent>
         <TagLine>
           <Typography
@@ -22,7 +22,7 @@ const Banner = () => {
             variant='subtitle2'
             style={{
               color: 'darkgray',
-              textTransform: 'capitalize'
+              // textTransform: 'capitalize'
             }}>
             Get all the Info regarding your favorite Crypto Currencies
           </Typography>

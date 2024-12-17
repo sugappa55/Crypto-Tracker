@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { signOut, User } from 'firebase/auth';
 import { AiFillDelete } from 'react-icons/ai';
-import { doc, setDoc } from 'firebase/firestore';
-import { auth, db } from '@/constants/firebase';
+import { auth } from '@/constants/firebase';
 import { Avatar, Drawer } from '@mui/material';
 import { Coin, Container, Logout, Picture, Profile, Watchlist } from './styles';
 import { numberWithCommas } from '@/utils/helpers';
@@ -11,13 +10,14 @@ import { useNavStore } from '@/store/useNavStore';
 import { symbols } from '@/constants';
 import { useUserContext } from '@/providers/UserContext';
 import useWatchlist from '@/hooks/useWatchlist';
+import { FlexBox } from '@/styles';
 
 export default function UserSidebar() {
   const user = useUserContext() as User;
   const { currency } = useNavStore();
   const { setStatus } = useSnackBarStore();
   const [openDrawer, setOpenDrawer] = useState(false);
-  const watchlist = useWatchlist();
+  const { watchlist, removeFromWatchlist } = useWatchlist();
 
   const symbol = symbols[currency];
 
@@ -33,25 +33,6 @@ export default function UserSidebar() {
       message: 'Logout Successful'
     });
     toggleDrawer();
-  };
-
-  const removeFromWatchlist = async (data: { id: string; name: string }) => {
-    const coinRef = doc(db, 'watchlist', user?.uid);
-    try {
-      await setDoc(coinRef, { coins: watchlist.filter(e => e !== data?.id) }, { merge: true });
-      setStatus({
-        type: 'success',
-        open: true,
-        message: `${data.name} Removed from The Watchlist`
-      });
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (e: any) {
-      setStatus({
-        type: 'error',
-        open: true,
-        message: e.message as string
-      });
-    }
   };
 
   return (
@@ -88,14 +69,14 @@ export default function UserSidebar() {
                   return (
                     <Coin key={coin.id}>
                       <span>{coin.name}</span>
-                      <span style={{ display: 'flex', gap: 8 }}>
+                      <FlexBox gap={8}>
                         {symbol} {numberWithCommas(coin.current_price[currency.toLowerCase()].toFixed(2))}
                         <AiFillDelete
                           style={{ cursor: 'pointer' }}
                           fontSize='16'
                           onClick={() => removeFromWatchlist(coin)}
                         />
-                      </span>
+                      </FlexBox>
                     </Coin>
                   );
                 })}

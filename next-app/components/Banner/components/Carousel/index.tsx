@@ -1,25 +1,22 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import AliceCarousel from 'react-alice-carousel';
 import CarouselItem from '../CarouselItem';
 import { CarouselContainer } from './styles';
 import { TrendingCoins } from '@/constants/apis';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import { useNavStore } from '@/store/useNavStore';
+import useFetch from '@/hooks/useFetch';
+
+const responsive = {
+  0: { items: 2 },
+  512: { items: 4 }
+};
 
 export const Carousel = () => {
-  const [data, setData] = useState([]);
   const { currency } = useNavStore();
 
-  useEffect(() => {
-    const getTrendingCoins = async () => {
-      const { data } = await axios.get(TrendingCoins(currency));
-      setData(data);
-    };
-    getTrendingCoins();
-  }, [currency]);
+  const { data = [] } = useFetch<any[]>(TrendingCoins(currency));
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const items = data.map((item: any) => {
@@ -35,10 +32,7 @@ export const Carousel = () => {
       />
     );
   });
-  const responsive = {
-    0: { items: 2 },
-    512: { items: 4 }
-  };
+
   return (
     <CarouselContainer>
       <AliceCarousel

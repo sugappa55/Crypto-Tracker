@@ -25,7 +25,8 @@ const darkTheme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          textTransform: 'none' // Prevent uppercase transformation on buttons
+          textTransform: 'none', // Prevent uppercase transformation on buttons
+          color: '#000'
         }
       }
     }
