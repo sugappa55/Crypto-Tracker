@@ -1,39 +1,36 @@
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-# Crypto Tracking App
+## Getting Started
 
-A cryptocurrency tracker is a website,that allows you to keep track of how the value of coins are changing.
+First, run the development server:
 
-## 🚀 About Me
-I'm a full stack developer...
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-Checkout my portfolio:
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-https://sugappa-kuruba-personal-portfolio.vercel.app/
-## Demo
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-https://crypto-tracker-vert.vercel.app/
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Learn More
 
+To learn more about Next.js, take a look at the following resources:
 
-## Features
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-- Media responsive pages
-- Live data of coins
-- Historical chart display  
-- Google authentication with help of firebase
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
+## Deploy on Vercel
 
-## Tech Stack
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-React Js, Material UI, Firebase
-
-
-## Screenshots
-
-![Screenshot (155)](https://user-images.githubusercontent.com/76251688/176666155-5b1dc724-d752-4c03-8e24-949a21e1b3e9.png)
-![Screenshot (157)](https://user-images.githubusercontent.com/76251688/176666164-43ac1309-432a-4f04-aefc-408363aac81a.png)
-![Screenshot (158)](https://user-images.githubusercontent.com/76251688/176666173-1f04fdd4-22c4-456b-85ef-d847c2ce85d9.png)
-![Screenshot (159)](https://user-images.githubusercontent.com/76251688/176666177-79509cc8-a21f-410a-8033-b2dc926ddc57.png)
-![Screenshot (160)](https://user-images.githubusercontent.com/76251688/176666181-d50bb59a-9434-47e5-b772-42d658db01a4.png)
-
-
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
