@@ -7,8 +7,8 @@ export const StyledModal = styled(Modal)(() => ({
 }));
 
 export const Paper = styled('div')(({ theme }) => ({
+  width: '400px',
   backgroundColor: theme.palette.background.paper,
-  width: 400,
   color: 'white',
   borderRadius: 10
 }));

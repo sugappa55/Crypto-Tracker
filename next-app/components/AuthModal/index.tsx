@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { AppBar, Backdrop, Button, Fade, Tab, Tabs } from '@mui/material';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
+import { StyledModal, Paper } from './styles';
 // import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { StyledModal } from './styles';
-import { Paper } from '@mui/material';
 // import { auth } from '@/constants/firebase';
 
 enum TabValues {
@@ -71,7 +70,7 @@ export default function AuthModal() {
           timeout: 500
         }}>
         <Fade in={open}>
-          <Paper>
+          <Paper className='paper-container'>
             <AppBar position='static' style={{ backgroundColor: 'transparent', color: 'white' }}>
               <Tabs value={value} onChange={handleChange} variant='fullWidth' style={{ borderRadius: 10 }}>
                 <Tab label='Login' />

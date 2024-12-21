@@ -16,7 +16,7 @@ const CoinChart = ({ coin }) => {
 
   const { data, loading } = useFetch<{
     prices: any[];
-  }>(HistoricalChart(coin.id, days, currency));
+  }>(HistoricalChart(coin?.id, days, currency));
 
   const chartData = data?.prices || [];
 
